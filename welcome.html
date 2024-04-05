@@ -5,7 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stand-Corrected</title>
 </head>
+
+<style>
+    
+.title {
+    font-weight: bold;
+    text-align: center;
+}
+
+.options-container {
+    display: flex; /* align children (option boxes) in a row */
+    justify-content: space-around; /* adds space around the option boxes */
+}
+
+.option {
+    margin: 0 30px; /* spacing between the boxes */
+    padding: 25px;
+    border: 1px solid #000;
+    flex: 0 0 45%; /* sets each box to 45% of the container's width */
+    box-sizing: border-box; 
+}
+
+</style>
+
 <body>
-    <h1 style="font-weight: bold;">stand-corrected</h1>
+    <div class="header">
+        <div class="icon"></div>
+        <h1 class="title" style="font-weight: bold;">Welcome to “Stand-Corrected”</h1>
+        <p class="subtitle">One user at a time please.</p>
+    </div>
+    <div class="options-container">
+        <div class="option">
+            <h3>Option 1:</h3>
+            <p>If you would like to be scanned to have your posture corrected, raise your left hand.</p>
+        </div>
+        <div class="option">
+            <h3>Option 2:</h3>
+            <p>If you do not wish to be scanned, raise your right hand for general posture-correcting tips.</p>
+        </div>
+    </div>
+
+<!-- Button for navigation (placeholder before kinect logic is implemented)
+<button id="navigateButton">Go to Countdown</button>
+
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="celebration.js" type="text/javascript"></script> -->
 </body>
+
 </html>
