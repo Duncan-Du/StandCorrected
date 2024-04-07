@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posture Correction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            color: #333; /* Text color */
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .image-container {
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .option {
+            flex: 0 0 48%; /* Each option takes up 48% of the container */
+        }
+
+        .message {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Try this!</h1>
+
+        <div class="image-container">
+            <img src="https://www.usa.edu/wp-content/uploads/2020/08/correct-standing-posture.png" alt="Correct Standing Posture">
+        </div>
+
+        <div class="options">
+            <div class="option">
+                <p>Hold your hand here to be rescanned.</p>
+            </div>
+            <div class="option">
+                <p>Hold your hand here to continue.</p>
+            </div>
+        </div>
+
+        <p class="message">Try to position yourself to match the example avatar. Are you feeling more confident?</p>
+    </div>
+
+<!-- Button for navigation (placeholder before kinect logic is implemented) -->
+  <button id="navigateButton">Go to Celebration</button>
+  <button id="navigateButton">Go to Scanning</button>
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="after_scan-bad_posture.js" type="text/javascript"></script>
+</body>
+</html>
