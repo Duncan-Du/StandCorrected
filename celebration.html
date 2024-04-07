@@ -2,15 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Celebration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://cdn.pixabay.com/photo/2012/04/05/01/40/balloons-25737_1280.png'); /* Path to your image */
+            background-size: 25% 25%; /* Cover 25% of the background */
+            background-position: top left, bottom right; /* Positions the image at top left and bottom right */
+            background-repeat: no-repeat; /* Do not repeat the background image */
+            text-align: center;
+            margin-top: 50px;
+            color: #fff; /* Text color */
+        }
+        
+        .message {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-<!-- page content goes here -->
-<h1>Celebration</h1>
-<!-- Button for navigation (placeholder before kinect logic is implemented) -->
-<button id="navigateButton">Go to Countdown</button>
+    <!-- page content goes here -->
+    <h1>Celebration</h1>
+    <div class="message">Excellent work!</div>
+    
+    <!-- Button for navigation (placeholder before kinect logic is implemented) -->
+    <button id="navigateButton">Go to Countdown</button>
 
-<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="celebration.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="celebration.js" type="text/javascript"></script>
 </body>
 </html>
