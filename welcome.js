@@ -51,8 +51,19 @@ var frames = {
 
 	selectOption: function (optionNumber, bodyId) {
 		console.log(`Body ID ${bodyId} selected option ${optionNumber}`);
-		// actions for Option 1 or Option 2
-	},
+		if (optionNumber === 1) {
+		if (optionNumber === 1) {
+				// Option 1 selection
+				console.log("Option 1 selected - Left hand raised");
+				// Additional actions for Option 1
+			} else if (optionNumber === 2) {
+				//  Option 2 selection
+				console.log("Option 2 selected - Right hand raised");
+				// Navigate to the general_suggestions.html page
+				window.location.href = "general_suggestions.html";
+            }
+        };
+    },
 };
 
 var sp2tx = {
