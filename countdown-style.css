@@ -1,0 +1,26 @@
+/* Basic reset for body margin and padding */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Flexbox setup for body to center all content */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+#countdown {
+    font-family: 'Arial', sans-serif;
+    /*color: #333; !* Color *!*/
+    font-size: 200px;
+    font-weight: bold;
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
