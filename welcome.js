@@ -1,9 +1,20 @@
-var host = "cpsc484-02.stdusr.yale.internal:8888";
+const LOCAL_DEV = true; // Set to false when running against the actual server
 
-$(document).ready(function () {
+var host = "cpsc484-02.stdusr.yale.internal:8888";
+if (LOCAL_DEV) {
+	host = "127.0.0.1:4444";
+}
+
+
+// $(document).ready(function () {
+// 	frames.start();
+// 	sp2tx.start();
+// });
+
+function setup() {
 	frames.start();
 	sp2tx.start();
-});
+}
 
 var frames = {
 	socket: null,
@@ -28,20 +39,31 @@ var frames = {
 	processPerson: function (person) {
 		const bodyId = person.body_id;
 		const joints = person.joints;
-		const shoulderLeft = joints[5]; // Index for SHOULDER_LEFT
-		const shoulderRight = joints[12]; // Index for SHOULDER_RIGHT
-		const handLeft = joints[8]; // Index for HAND_LEFT
-		const handRight = joints[14]; // Index for HAND_RIGHT
 
-		// Check if left hand is raised above the left shoulder
+		// Assuming you're interested in checking the vertical alignment of certain body parts
+		const shoulderLeft = joints[5];
+		const handLeft = joints[8];
+		const shoulderRight = joints[12];
+		const handRight = joints[14];
+
+		// Your custom logic to determine if an action should be taken based on posture
+		this.checkPosture(shoulderLeft, handLeft, shoulderRight, handRight, bodyId);
+	},
+
+	checkPosture: function (
+		shoulderLeft,
+		handLeft,
+		shoulderRight,
+		handRight,
+		bodyId
+	) {
+		// Example logic to check if hands are raised above shoulders
 		if (
 			handLeft.position.y > shoulderLeft.position.y &&
 			handLeft.confidence >= 2
 		) {
 			this.selectOption(1, bodyId);
-		}
-		// Check if right hand is raised above the right shoulder
-		else if (
+		} else if (
 			handRight.position.y > shoulderRight.position.y &&
 			handRight.confidence >= 2
 		) {
@@ -52,16 +74,15 @@ var frames = {
 	selectOption: function (optionNumber, bodyId) {
 		console.log(`Body ID ${bodyId} selected option ${optionNumber}`);
 		if (optionNumber === 1) {
-				// Option 1 selection
-				console.log("Option 1 selected - Left hand raised");
-				// Additional actions for Option 1
-			} else if (optionNumber === 2) {
-				//  Option 2 selection
-				console.log("Option 2 selected - Right hand raised");
-				// Navigate to the general_suggestions.html page
-				window.location.href = "general_suggestions.html";
-            }
-    },
+			// Option 1 selection logic here
+			console.log("Option 1 selected - Left hand raised");
+			window.location.href = "scanning.html";
+		} else if (optionNumber === 2) {
+			// Option 2 selection leads to navigation
+			console.log("Option 2 selected - Right hand raised");
+			window.location.href = "general_suggestions.html";
+		}
+	},
 };
 
 var sp2tx = {
@@ -78,3 +99,13 @@ var sp2tx = {
 		};
 	},
 };
+
+
+// Event listener
+document.addEventListener('DOMContentLoaded', function() {
+  setup();
+
+  document.getElementById('navigateButton').addEventListener('click', navigateToPage);
+});
+
+
