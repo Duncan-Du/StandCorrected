@@ -1,78 +1,105 @@
-/********** Kinect Interface ********************/
+const LOCAL_DEV = true; // Set to false when running against the actual server
 
-// var socket = new WebSocket("ws://cpsc484-02.stdusr.yale.internal:8888/frames");
-// var host = "cpsc484-02.stdusr.yale.internal:8888";
-//
+var host = "cpsc484-02.stdusr.yale.internal:8888";
+if (LOCAL_DEV) {
+	host = "127.0.0.1:4444";
+}
+
+
 // $(document).ready(function () {
-//   frames.start();
-//   sp2tx.start();
+// 	frames.start();
+// 	sp2tx.start();
 // });
-//
-// var frames = {
-//   socket: null,
-//
-//   start: function () {
-//     var url = "ws://" + host + "/frames";
-//     frames.socket = new WebSocket(url);
-//     frames.socket.onmessage = function (event) {
-//       frames.show(JSON.parse(event.data));
-//     }
-//   },
-//
-//   show: function (frame) {
-//     console.log(frame);
-//   }
-// };
-//
-// var sp2tx = {
-//   socket: null,
-//
-//   start: function () {
-//     var url = "ws://" + host + "/sp2tx";
-//     sp2tx.socket = new WebSocket(url);
-//     sp2tx.socket.onmessage = function (event) {
-//       var text = event.data;
-//       if (text !== "") {
-//         console.log("/sp2tx recived: " + text);
-//       }
-//     }
-//   }
-// };
-//
-//
-//
-// var twod = {
-//   socket: null,
-//
-//   // create a connection to the camera feed
-//   start: function () {
-//     var url = "ws://" + host + "/twod";
-//     twod.socket = new WebSocket(url);
-//
-//     // whenever a new frame is received...
-//     twod.socket.onmessage = function (event) {
-//
-//       // parse and show the raw data
-//       twod.show(JSON.parse(event.data));
-//     }
-//   },
-//
-//   // show the image by adjusting the source attribute of the HTML img object previously created
-//   show: function (twod) {
-//     $('img.twod').attr("src", 'data:image/pnjpegg;base64,' + twod.src);
-//   },
-// };
 
-/********** Visualization ********************/
 function setup() {
-
+	frames.start();
+	sp2tx.start();
 }
 
-// Function to navigate
-function navigateToPage() {
-  console.log("button pressed")
-  window.location.href = 'general_suggestions.html';
-}
+var frames = {
+	socket: null,
+
+	start: function () {
+		var url = "ws://" + host + "/frames";
+		this.socket = new WebSocket(url);
+		this.socket.onmessage = function (event) {
+			frames.processFrame(JSON.parse(event.data));
+		};
+	},
+
+	processFrame: function (data) {
+		if (data.people) {
+			for (const person of data.people) {
+				// Process each person's data
+				this.processPerson(person);
+			}
+		}
+	},
+
+	processPerson: function (person) {
+		const bodyId = person.body_id;
+		const joints = person.joints;
+
+		// Assuming you're interested in checking the vertical alignment of certain body parts
+		const shoulderLeft = joints[5];
+		const handLeft = joints[8];
+		const shoulderRight = joints[12];
+		const handRight = joints[14];
+
+		// Your custom logic to determine if an action should be taken based on posture
+		this.checkPosture(shoulderLeft, handLeft, shoulderRight, handRight, bodyId);
+	},
+
+	checkPosture: function (
+		shoulderLeft,
+		handLeft,
+		shoulderRight,
+		handRight,
+		bodyId
+	) {
+		// Example logic to check if hands are raised above shoulders
+		if (
+			handLeft.position.y > shoulderLeft.position.y &&
+			handLeft.confidence >= 2
+		) {
+			this.selectOption(1, bodyId);
+		} else if (
+			handRight.position.y > shoulderRight.position.y &&
+			handRight.confidence >= 2
+		) {
+			this.selectOption(2, bodyId);
+		}
+	},
+
+	selectOption: function (optionNumber, bodyId) {
+		console.log(`Body ID ${bodyId} selected option ${optionNumber}`);
+		if (optionNumber === 1) {
+			// Option 1 selection logic here
+			console.log("Option 1 selected - Left hand raised");
+			window.location.href = "scanning.html";
+		} else if (optionNumber === 2) {
+			// Option 2 selection leads to navigation
+			console.log("Option 2 selected - Right hand raised");
+			window.location.href = "general_suggestions.html";
+		}
+	},
+};
+
+var sp2tx = {
+	socket: null,
+
+	start: function () {
+		var url = "ws://" + host + "/sp2tx";
+		this.socket = new WebSocket(url);
+		this.socket.onmessage = function (event) {
+			var text = event.data;
+			if (text !== "") {
+				console.log("/sp2tx received: " + text);
+			}
+		};
+	},
+};
+
 
 // Event listener
 document.addEventListener('DOMContentLoaded', function() {
@@ -80,3 +107,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.getElementById('navigateButton').addEventListener('click', navigateToPage);
 });
+
+
