@@ -121,3 +121,13 @@ html, body {
   .active-down {
     border-top: 15px solid #c1f80a;
   }
+
+h1 {
+  text-align: center;
+}
+
+#countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
