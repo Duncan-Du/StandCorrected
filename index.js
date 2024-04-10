@@ -55,7 +55,7 @@ var frames = {
 		handRight,
 		bodyId
 	) {
-		const raiseThreshold = 30; // The minimum distance the hand needs to be above the shoulder
+		const raiseThreshold = 50; // The minimum distance the hand needs to be above the shoulder
 
 		if (
 			handLeft.position.y > shoulderLeft.position.y + raiseThreshold &&
