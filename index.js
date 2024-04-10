@@ -40,13 +40,11 @@ var frames = {
 		const bodyId = person.body_id;
 		const joints = person.joints;
 
-		// Assuming you're interested in checking the vertical alignment of certain body parts
 		const shoulderLeft = joints[5];
 		const handLeft = joints[8];
 		const shoulderRight = joints[12];
 		const handRight = joints[14];
 
-		// Your custom logic to determine if an action should be taken based on posture
 		this.checkPosture(shoulderLeft, handLeft, shoulderRight, handRight, bodyId);
 	},
 
@@ -57,14 +55,15 @@ var frames = {
 		handRight,
 		bodyId
 	) {
-		// Example logic to check if hands are raised above shoulders
+		const raiseThreshold = 20; // The minimum distance the hand needs to be above the shoulder
+
 		if (
-			handLeft.position.y > shoulderLeft.position.y &&
+			handLeft.position.y + raiseThreshold < shoulderLeft.position.y &&
 			handLeft.confidence >= 2
 		) {
 			this.selectOption(1, bodyId);
 		} else if (
-			handRight.position.y > shoulderRight.position.y &&
+			handRight.position.y + raiseThreshold < shoulderRight.position.y &&
 			handRight.confidence >= 2
 		) {
 			this.selectOption(2, bodyId);
