@@ -55,15 +55,15 @@ var frames = {
 		handRight,
 		bodyId
 	) {
-		const raiseThreshold = 0; // The minimum distance the hand needs to be above the shoulder
+		const raiseThreshold = 30; // The minimum distance the hand needs to be above the shoulder
 
 		if (
-			handLeft.position.y > shoulderLeft.position.y &&
+			handLeft.position.y > shoulderLeft.position.y + raiseThreshold &&
 			handLeft.confidence >= 2
 		) {
 			this.selectOption(1, bodyId);
 		} else if (
-			handRight.position.y > shoulderRight.position.y &&
+			handRight.position.y > shoulderRight.position.y + raiseThreshold &&
 			handRight.confidence >= 2
 		) {
 			this.selectOption(2, bodyId);
@@ -104,7 +104,7 @@ var sp2tx = {
 document.addEventListener('DOMContentLoaded', function() {
   setup();
 
-  document.getElementById('navigateButton').addEventListener('click', navigateToPage);
+//   document.getElementById('navigateButton').addEventListener('click', navigateToPage);
 });
 
 
