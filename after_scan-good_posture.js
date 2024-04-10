@@ -1,7 +1,8 @@
-const SECONDS_TO_COUNTDOWN = 5;
+const SECONDS_TO_COUNTDOWN = 15;
 
 function setup() {
   let countdownNumber = SECONDS_TO_COUNTDOWN;
+  const countdownElement = document.getElementById('countdown');
 
   // Update the countdown every second
   const intervalId = setInterval(() => {
@@ -15,12 +16,10 @@ function setup() {
   }, 1000);
 }
 
-
-
 // Function to navigate
 function navigateToPage() {
   console.log("button pressed")
-  window.location.href = 'return_home_countdown.html';
+  window.location.href = 'index.html';
 }
 
 // Event listener
