@@ -6,7 +6,6 @@ function setup() {
   // Update the countdown every second
   const intervalId = setInterval(() => {
     countdownNumber--;
-    countdownElement.textContent = countdownNumber;
 
     if (countdownNumber <= 0) {
       clearInterval(intervalId);

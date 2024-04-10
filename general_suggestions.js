@@ -17,7 +17,7 @@
 
 
 
-const SECONDS_TO_COUNTDOWN = 15;
+const SECONDS_TO_COUNTDOWN = 5;
 
 function setup() {
   let countdownNumber = SECONDS_TO_COUNTDOWN;
@@ -26,7 +26,6 @@ function setup() {
   // Update the countdown every second
   const intervalId = setInterval(() => {
     countdownNumber--;
-    countdownElement.textContent = countdownNumber;
 
     if (countdownNumber <= 0) {
       clearInterval(intervalId);
@@ -38,7 +37,7 @@ function setup() {
 // Function to navigate
 function navigateToPage() {
   console.log("button pressed")
-  window.location.href = 'index.html';
+  window.location.href = 'return_home_countdown.html';
 }
 
 // Event listener

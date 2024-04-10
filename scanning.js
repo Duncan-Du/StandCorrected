@@ -1,4 +1,4 @@
-const LOCAL_DEV = true
+const LOCAL_DEV = false
 
 var host = "cpsc484-02.stdusr.yale.internal:8888";
 if (LOCAL_DEV) {
@@ -6,7 +6,7 @@ if (LOCAL_DEV) {
 }
 
 
-const VERTICAL_ALIGNMENT_THRESHOLD = 10; // Arbitrary for now, need to change later
+const VERTICAL_ALIGNMENT_THRESHOLD = 80; // Arbitrary for now, need to change later
 
 function setup() {
   frames.start();
@@ -42,6 +42,7 @@ var frames = {
     // joints of interest
     const jointIndices = {
       EAR_RIGHT: 31,
+      // CLAVICLE_RIGHT: 11,
       SHOULDER_RIGHT: 12,
       // HIP_RIGHT: 22,
       // KNEE_RIGHT: 23,
@@ -49,30 +50,40 @@ var frames = {
     };
 
     // Extracting the x-coordinates
-    const xCoords = {};
+    const zCoords = {};
     Object.keys(jointIndices).forEach(joint => {
       const index = jointIndices[joint];
-      xCoords[joint] = joints[index].position.x;
+      zCoords[joint] = joints[index].position.z;
     });
 
     // Check alignment
     let isAligned = true;
     let maxDiff = 0;
-    const baseXCoord = xCoords['EAR_RIGHT']; // Use EAR_RIGHT (head) as reference
-    Object.values(xCoords).forEach(xCoord => {
-      if (Math.abs(xCoord - baseXCoord) > VERTICAL_ALIGNMENT_THRESHOLD) {
+    const baseZCoord = zCoords['EAR_RIGHT']; // Use EAR_RIGHT (head) as reference
+    Object.values(zCoords).forEach(zCoord => {
+      if (Math.abs(zCoord - baseZCoord) > VERTICAL_ALIGNMENT_THRESHOLD) {
         isAligned = false;
-        maxDiff = Math.max(maxDiff, Math.abs(xCoord - baseXCoord));
+        maxDiff = Math.max(maxDiff, Math.abs(zCoord - baseZCoord));
       }
     });
 
-    if (isAligned) {
-      console.log("Posture is good");
-      window.location.href = "after_scan-good_posture.html"
-    } else {
-      console.log("Posture is bad!!! Max diff: " + maxDiff);
-      window.location.href = "after_scan-bad_posture.html"
-    }
+
+    console.log("Max diff: " + maxDiff);
+
+    const debugElement = document.getElementById('debug');
+    debugElement.textContent = "Posture Index = " + maxDiff;
+
+    setInterval(() => {
+      if (isAligned) {
+        console.log("Posture is good");
+        window.location.href = "after_scan-good_posture.html";
+      } else {
+        console.log("Posture is bad.");
+        window.location.href = "after_scan-bad_posture.html";
+      }
+    }, 10000);
+
+
   },
 
 };

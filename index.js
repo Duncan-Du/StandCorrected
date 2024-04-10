@@ -1,4 +1,4 @@
-const LOCAL_DEV = true; // Set to false when running against the actual server
+const LOCAL_DEV = false; // Set to false when running against the actual server
 
 var host = "cpsc484-02.stdusr.yale.internal:8888";
 if (LOCAL_DEV) {
@@ -55,23 +55,22 @@ var frames = {
 		handRight,
 		bodyId
 	) {
-		const raiseThreshold = 50; // The minimum distance the hand needs to be above the shoulder
-
-		if (
-			handLeft.position.y > shoulderLeft.position.y + raiseThreshold &&
-			handLeft.confidence >= 2
-		) {
+		const raiseThreshold = 200; // The minimum distance the hand needs to be above the shoulder
+		var leftDiff = handLeft.position.y - shoulderLeft.position.y;
+		console.log("left hand - shoulder diff: " + leftDiff);
+		console.log("left hand confidence: " + handLeft.confidence);
+		var rightDiff = handRight.position.y - shoulderRight.position.y;
+		console.log("right hand - shoulder diff: " + rightDiff);
+		console.log("right hand confidence: " + handLeft.confidence);
+		if (leftDiff < - raiseThreshold) {
 			this.selectOption(1, bodyId);
-		} else if (
-			handRight.position.y > shoulderRight.position.y + raiseThreshold &&
-			handRight.confidence >= 2
-		) {
+		} else if (rightDiff < - raiseThreshold) {
 			this.selectOption(2, bodyId);
 		}
 	},
 
 	selectOption: function (optionNumber, bodyId) {
-		console.log(`Body ID ${bodyId} selected option ${optionNumber}`);
+		// console.log(`Body ID ${bodyId} selected option ${optionNumber}`);
 		if (optionNumber === 1) {
 			// Option 1 selection logic here
 			console.log("Option 1 selected - Left hand raised");
