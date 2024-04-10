@@ -68,8 +68,10 @@ var frames = {
 
     if (isAligned) {
       console.log("Posture is good");
+      window.location.href = "after_scan-good_posture.html"
     } else {
-      console.log("Posture is bad. Max diff: " + maxDiff);
+      console.log("Posture is bad!!! Max diff: " + maxDiff);
+      window.location.href = "after_scan-bad_posture.html"
     }
   },
 
@@ -92,7 +94,6 @@ var sp2tx = {
 
 
 function navigateToPage() {
-  console.log("button pressed")
   window.location.href = 'index.html';
 }
 
