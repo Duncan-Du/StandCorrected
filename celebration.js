@@ -1,6 +1,21 @@
-function setup() {
+const SECONDS_TO_COUNTDOWN = 5;
 
+function setup() {
+  let countdownNumber = SECONDS_TO_COUNTDOWN;
+
+  // Update the countdown every second
+  const intervalId = setInterval(() => {
+    countdownNumber--;
+    countdownElement.textContent = countdownNumber;
+
+    if (countdownNumber <= 0) {
+      clearInterval(intervalId);
+      navigateToPage(); // redirect after countdown ends
+    }
+  }, 1000);
 }
+
+
 
 // Function to navigate
 function navigateToPage() {
