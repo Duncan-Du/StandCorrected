@@ -55,15 +55,15 @@ var frames = {
 		handRight,
 		bodyId
 	) {
-		const raiseThreshold = 20; // The minimum distance the hand needs to be above the shoulder
+		const raiseThreshold = 0; // The minimum distance the hand needs to be above the shoulder
 
 		if (
-			handLeft.position.y + raiseThreshold < shoulderLeft.position.y &&
+			handLeft.position.y > shoulderLeft.position.y &&
 			handLeft.confidence >= 2
 		) {
 			this.selectOption(1, bodyId);
 		} else if (
-			handRight.position.y + raiseThreshold < shoulderRight.position.y &&
+			handRight.position.y > shoulderRight.position.y &&
 			handRight.confidence >= 2
 		) {
 			this.selectOption(2, bodyId);
