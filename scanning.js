@@ -1,9 +1,5 @@
-const LOCAL_DEV = false
-
-var host = "cpsc484-02.stdusr.yale.internal:8888";
-if (LOCAL_DEV) {
-  host = "127.0.0.1:4444"
-}
+import config from './config.js';
+host = config.host;
 
 
 const VERTICAL_ALIGNMENT_THRESHOLD = 80; // Arbitrary for now, need to change later

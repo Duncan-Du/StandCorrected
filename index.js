@@ -1,9 +1,6 @@
-const LOCAL_DEV = false; // Set to false when running against the actual server
 
-var host = "cpsc484-02.stdusr.yale.internal:8888";
-if (LOCAL_DEV) {
-	host = "127.0.0.1:4444";
-}
+import config from './config.js';
+host = config.host;
 
 
 // $(document).ready(function () {
