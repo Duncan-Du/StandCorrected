@@ -1,7 +1,7 @@
 
 import config from './config.js';
-host = config.host;
-
+const host = config.host;
+console.log("host: " + host);
 
 // $(document).ready(function () {
 // 	frames.start();

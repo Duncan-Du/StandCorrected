@@ -1,5 +1,5 @@
 import config from './config.js';
-host = config.host;
+const host = config.host;
 
 
 // $(document).ready(function () {
