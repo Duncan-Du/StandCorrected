@@ -8,23 +8,60 @@
 
 <style>
 
+body {
+    font-family: 'Arial', sans-serif; /* Use a modern, readable font */
+    background-color: #f4f4f9; /* A light, neutral background color */
+    margin: 0;
+    padding: 20px; /* Add padding to prevent content from sticking to edges */
+    display: flex;
+    flex-direction: column; /* Stack child elements vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    height: 100vh; /* Full viewport height */
+    text-align: center; /* Ensures text within children is centered */
+}
+
+.header {
+    margin-bottom: 30px; /* Space between the header and the options */
+}
+
 .title {
     font-weight: bold;
-    text-align: center;
+    color: #333; /* Darker color for contrast */
+    font-size: 2em; /* Make the title larger to stand out */
+}
+
+.subtitle {
+    color: #666;
+    margin-top: 10px; /* Space between title and subtitle */
 }
 
 .options-container {
-    display: flex; /* align children (option boxes) in a row */
-    justify-content: space-around; /* adds space around the option boxes */
+    width: 80%; /* Optimal width for visibility and aesthetics */
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    border-radius: 10px; /* Soften the edges */
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Allow options to wrap on smaller screens */
 }
 
 .option {
-    margin: 0 30px; /* spacing between the boxes */
-    padding: 25px;
-    border: 1px solid #000;
-    flex: 0 0 45%; /* sets each box to 45% of the container's width */
-    box-sizing: border-box; 
+    flex-basis: 45%; /* Each option takes up to 45% of the container width */
+    margin: 10px;
+    padding: 20px;
+    background-color: #f8f8f8; /* Slightly off-white for the options */
+    border: 1px solid #ddd; /* Subtle border */
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
 }
+
+.option:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    background-color: #eef; /* Highlight on hover */
+}
+
 
 </style>
 
