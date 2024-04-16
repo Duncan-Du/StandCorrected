@@ -37,29 +37,37 @@ body {
 }
 
 .options-container {
-    width: 80%; /* Optimal width for visibility and aesthetics */
+    width: 60%; /* Adjusted width for better side-by-side display */
     background-color: #ffffff;
     padding: 20px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Subtle shadow for depth */
     border-radius: 10px; /* Soften the edges */
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap; /* Allow options to wrap on smaller screens */
+    justify-content: space-between; /* Ensures space between options */
+    align-items: center; /* Align items vertically */
+    flex-wrap: nowrap; /* Prevents wrapping by default */
 }
 
 .option {
-    flex-basis: 45%; /* Each option takes up to 45% of the container width */
+    flex: 1; /* Allows each option to grow and take up equal space */
     margin: 10px;
     padding: 20px;
     background-color: #f8f8f8; /* Slightly off-white for the options */
     border: 1px solid #ddd; /* Subtle border */
     border-radius: 8px;
     transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+    text-align: center; /* Center text inside each option */
 }
 
 .option:hover {
     transform: translateY(-5px); /* Lift effect on hover */
     background-color: #eef; /* Highlight on hover */
+}
+
+@media (max-width: 600px) {
+    .options-container {
+        flex-direction: column; /* Stacks the options vertically on smaller screens */
+    }
 }
 
 
