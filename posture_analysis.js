@@ -1,8 +1,9 @@
 import config from './config.js';
+
 const host = config.host;
 
 
-const VERTICAL_ALIGNMENT_THRESHOLD = 80; // Arbitrary for now, need to change later
+const VERTICAL_ALIGNMENT_THRESHOLD = 1000; // Arbitrary for now, need to change later
 
 
 export var frames = {
@@ -25,6 +26,14 @@ export var frames = {
     }
   },
 
+  calculateDeviation: function (zCoords) {
+    const mean = Object.values(zCoords).reduce((acc, curr) => acc + curr, 0) /
+      Object.values(zCoords).length;
+    // calculate the mean squared deviation for the z-coordinates
+    return Object.values(zCoords)
+      .reduce((acc, curr) => acc + Math.pow(curr - mean, 2), 0) / Object.values(zCoords).length;
+  },
+
   processPerson: function (person) {
     console.log("Processing person data");
     const bodyId = person.body_id;
@@ -33,36 +42,32 @@ export var frames = {
     // joints of interest
     const jointIndices = {
       EAR_RIGHT: 31,
-      // CLAVICLE_RIGHT: 11,
+      CLAVICLE_RIGHT: 11,
       SHOULDER_RIGHT: 12,
+      PELVIS: 0,
       // HIP_RIGHT: 22,
       // KNEE_RIGHT: 23,
       // ANKLE_RIGHT: 24
     };
 
-    // Extracting the x-coordinates
+    // Extracting the z-coordinates
     const zCoords = {};
+    const confidences = [];
     Object.keys(jointIndices).forEach(joint => {
       const index = jointIndices[joint];
       zCoords[joint] = joints[index].position.z;
+      confidences.push(joints[index].confidence);
     });
 
     // Check alignment
-    let isAligned = true;
-    let maxDiff = 0;
-    const baseZCoord = zCoords['EAR_RIGHT']; // Use EAR_RIGHT (head) as reference
-    Object.values(zCoords).forEach(zCoord => {
-      if (Math.abs(zCoord - baseZCoord) > VERTICAL_ALIGNMENT_THRESHOLD) {
-        isAligned = false;
-        maxDiff = Math.max(maxDiff, Math.abs(zCoord - baseZCoord));
-      }
-    });
+    let maxDiff = this.calculateDeviation(zCoords);
+    let isAligned = maxDiff < VERTICAL_ALIGNMENT_THRESHOLD;
+    const avgConfidence = confidences.reduce((acc, curr) => acc + curr, 0) / confidences.length;
 
-
-    console.log("Max diff: " + maxDiff);
+    console.log("MSD: " + maxDiff);
 
     const debugElement = document.getElementById('debug');
-    debugElement.textContent = "Posture Index = " + maxDiff;
+    debugElement.textContent = "Posture Index = " + maxDiff + ". Avg Confidence = " + avgConfidence + ".";
 
     setInterval(() => {
       if (isAligned) {
