@@ -41,6 +41,18 @@
             font-size: 18px;
             margin-bottom: 20px;
         }
+        .emergency-exit-button {
+            position: fixed;
+            top: 10px; /* Adjust top position as needed */
+            right: 10px; /* Adjust right position as needed */
+            z-index: 9999; /* Ensure it's above other elements */
+            background-color: red; /* Change color as desired */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -61,11 +73,14 @@
         </div>
 
         <p class="message">Try to position yourself to match the example avatar. Are you feeling more confident?</p>
+        
     </div>
+    
 
 <!-- Button for navigation (placeholder before kinect logic is implemented) -->
   <button id="navigateButton">Go to Celebration</button>
   <button id="navigateButton">Go to Scanning</button>
+    <button id="emergencyExitButton" class="emergency-exit-button">Emergency Exit</button>
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="module" src="after_scan-bad_posture.js" type="text/javascript"></script>
 </body>
