@@ -58,6 +58,11 @@ var sp2tx = {
 
 document.addEventListener('DOMContentLoaded', function () {
     setupFramesAndSocket(frames, sp2tx);
+    const emergencyExitButton = document.getElementById('emergencyExitButton');
+    emergencyExitButton.addEventListener('click', function() {
+        // Navigate to the welcome screen
+        window.location.href = "index.html"; 
+    });
 });
 
 
