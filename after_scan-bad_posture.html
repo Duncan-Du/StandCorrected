@@ -20,7 +20,9 @@
         }
         
         .container {
-            width: 80%;
+            width: 70%;
+            max-height: 70vh; /* Adjust maximum height */
+            overflow: hidden; /* Hide overflow to prevent scrolling */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -32,6 +34,7 @@
 
         .image-container img {
             max-width: 100%;
+            max-height: 100%; /* Ensure the image fits within the container */
             height: auto;
         }
 
@@ -102,6 +105,7 @@
     <script type="module" src="after_scan-bad_posture.js" type="text/javascript"></script>
 </body>
 </html>
+
 
 
 // old code
