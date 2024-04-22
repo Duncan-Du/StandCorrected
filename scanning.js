@@ -1,8 +1,7 @@
-import {frames, sp2tx} from './posture_analysis.js';
+import {frames} from './posture_analysis.js';
 
 function setup() {
   frames.start();
-  sp2tx.start();
 }
 
 

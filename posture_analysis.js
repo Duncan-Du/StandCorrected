@@ -94,18 +94,3 @@ export var frames = {
   },
 
 };
-
-export var sp2tx = {
-  socket: null,
-
-  start: function () {
-    var url = "ws://" + host + "/sp2tx";
-    this.socket = new WebSocket(url);
-    this.socket.onmessage = function (event) {
-      var text = event.data;
-      if (text !== "") {
-        console.log("/sp2tx received: " + text);
-      }
-    };
-  },
-};
