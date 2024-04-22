@@ -35,7 +35,7 @@ var frames = {
             window.location.href = "scanning.html";
         } else if (optionNumber === 2) {
             console.log("Option 2 selected - Right hand raised");
-            window.location.href = "celebration.html";
+            window.location.href = "general_suggestions.html";
         }
     },
 };
