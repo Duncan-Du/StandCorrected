@@ -36,8 +36,8 @@
         }
 
         .image-container img {
-            width: 100%; /* Make image fill its container */
-            height: auto; /* Maintain aspect ratio */
+            width: auto; /* Allow image to determine width */
+            height: 100%; /* Make image fill its container */
         }
 
         .options-container {
@@ -83,14 +83,13 @@
 </head>
 <body>
     <div class="container">
-        <div class="image-container">
-            <img src="https://www.usa.edu/wp-content/uploads/2020/08/correct-standing-posture.png" alt="Correct Standing Posture">
-        </div>
-
         <div class="options-container">
             <div class="option">
                 <h3>Option 1:</h3>
                 <p>If you would like to be scanned to have your posture corrected, raise your left hand.</p>
+            </div>
+            <div class="image-container">
+                <img src="https://www.usa.edu/wp-content/uploads/2020/08/correct-standing-posture.png" alt="Correct Standing Posture">
             </div>
             <div class="option">
                 <h3>Option 2:</h3>
@@ -103,13 +102,11 @@
 
     <button id="emergencyExitButton" class="emergency-exit-button">Hold your right Hand up to Emergency Exit</button>
 
-    <!-- Second Emergency Exit Button -->
-    <button id="emergencyExitButton2" class="emergency-exit-button" style="top: 10px; right: 50px;">Hold your right Hand up to Emergency Exit</button>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="module" src="after_scan-bad_posture.js" type="text/javascript"></script>
 </body>
 </html>
+
 
 
 
