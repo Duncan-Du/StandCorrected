@@ -21,8 +21,6 @@ export var frames = {
         const bodyId = person.body_id;
         const joints = person.joints;
 
-        const shoulderLeft = joints[5];
-        const handLeft = joints[8];
         const shoulderRight = joints[12];
         const handRight = joints[14];
 
