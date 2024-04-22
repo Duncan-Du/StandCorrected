@@ -1,6 +1,7 @@
 // Incorperating Modularity of gesture_navigation as of 4-18-2024
 import config from './config.js';
 import { setupFramesAndSocket, processFrame, checkPosture } from './gesture_navigation.js';
+import './emergency_exit.js';
 
 const host = config.host;
 console.log("host: " + host);
