@@ -1,4 +1,5 @@
 import {frames} from './posture_analysis.js';
+import './emergency_exit.js';
 
 function setup() {
   frames.start();
