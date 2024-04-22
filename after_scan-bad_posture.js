@@ -26,7 +26,6 @@ var frames = {
         const handRight = joints[14];
 
         checkPosture(shoulderLeft, handLeft, shoulderRight, handRight, 200, this, bodyId);
-        emergencyExitCheck(shoulderRight, handRight, -50, this, bodyId); // MAKE SURE TO CHANGE EMERGENCY THRESHOLD APPROPRIATELY
     },
 
     selectOption: function (optionNumber, bodyId) {
@@ -39,10 +38,6 @@ var frames = {
             console.log("Option 2 selected - Right hand raised");
             window.location.href = "celebration.html";
         }
-          else if (optionNumber === 3){
-            console.log("Option 3 selected - Emergency Exit");
-            window.location.href = "index.html";
-          }
     },
 };
 
