@@ -56,8 +56,13 @@ var sp2tx = {
     },
 };
 
+function setup() {
+	frames.start();
+}
 
-
+document.addEventListener('DOMContentLoaded', function() {
+  setup();
+});
 
 // Preserving old code from 4-15-2024:
 // import config from './config.js';
