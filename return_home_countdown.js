@@ -1,3 +1,4 @@
+import './emergency_exit.js';
 const SECONDS_TO_COUNTDOWN = 15;
 
 function setup() {
