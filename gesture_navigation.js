@@ -31,12 +31,5 @@ export function checkPosture(shoulderLeft, handLeft, shoulderRight, handRight, r
 }
 
 
-export function emergencyExitCheck(shoulderRight, handRight, emergencyThreshold, frames, bodyId){
-    const rightDiff = handRight.position.y - shoulderRight.position.y;
-    console.log("right hand - shoulder diff: " + rightDiff);
-    console.log("right hand confidence: " + handLeft.confidence);
-    if (rightDiff < -emergencyThreshold){
-        frames.selectOption(3, bodyId);
-    }
 
 };
