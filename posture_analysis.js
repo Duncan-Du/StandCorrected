@@ -81,6 +81,12 @@ export var frames = {
       maxDiffValues.push(maxDiff);
     }
 
+    // Update progress bar
+    const progressBar = document.getElementById('scanProgress');
+    if (progressBar) {
+      progressBar.value = maxDiffValues.length;
+    }
+
     console.log("MSD: " + maxDiff);
 
     const debugElement = document.getElementById('debug');
