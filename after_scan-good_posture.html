@@ -69,20 +69,27 @@
             font-size: 18px;
             margin-bottom: 20px;
         }
+  #handEmoji {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
 
-        /* Style for hand emoji */
-        #handEmoji {
-            position: absolute;
-            top: 10px; /* Adjust top position */
-            right: 10px; /* Adjust right position */
-            font-size: 4em;
-            transform: rotateY(180deg); /* Flip the hand emoji horizontally */
-        }
+#handEmoji::before {
+    content: 'Hold your hand here to exit and return to the Welcome Screen';
+    font-size: 1em; /* Adjust text size as needed */
+}
+
+#handEmoji::after {
+    content: '🖐️';
+    font-size: 2em; /* Adjust emoji size as needed */
+    
+}
     </style>
 </head>
 <body>
     <!-- Hand emoji -->
-    <span id="handEmoji">🖐️</span>
+    <span id="handEmoji"></span>
 
     <h1 style="margin-bottom: 0;">Good Job!</h1>
     <h1 style="margin-top: 0;">You're over an 80% match!</h1>
@@ -99,96 +106,14 @@
     </div>
 
     <!-- Additional buttons -->
-    <button id="navigateButton">🎉 Go to Celebration</button>
+ <!--   <button id="navigateButton">🎉 Go to Celebration</button>
 
-    <button id="emergencyExitButton" class="emergency-exit-button">Hold your right Hand up to Emergency Exit</button>
+    <button id="emergencyExitButton" class="emergency-exit-button">Hold your right Hand up to Emergency Exit</button> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="module" src="after_scan-bad_posture.js" type="text/javascript"></script>
 </body>
 </html>
-<!--
-
-old code
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  font-family: Arial;
-  color: black;
-}
-
-.split {
-  height: 100%;
-  width: 50%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-
-.left {
-  left: 0;
-  background-color: white;
-}
-
-.right {
-  right: 0;
-  background-color: white;
-}
-
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.centered img {
-  width: 500px;
-
-}
-</style>
-</head>
-<h1 style="text-align: center;">General Suggestions</h1> 
-<body>
-
-<div class="split left">
-  <div class="centered">
-<h1> Good Job! </h1>
-<img src="https://www.usa.edu/wp-content/uploads/2020/08/correct-standing-posture.png" alt="Correct Standing Posture">	
-<h2> Your position now matches the avatar!  </h2>
-  </div>
-</div>
-
-<div class="split right">
-  <div class="centered">
-  <h1> 80% Match! </h1>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Stick_Figure.svg/1200px-Stick_Figure.svg.png" alt="Person Posture" width="80" 
-     height="400" />
-  <p>Congratulations!  </p>
-
-<!-- Button for navigation (placeholder before kinect logic is implemented) 
-<button id="navigateButton">Go to Celebration</button>
-<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="module" src="general_suggestions.js" type="text/javascript"></script>
-
-  </div>
-</div>
-
-
-     
-</body>
-
-
-</html> 
-
--->
 
 
 </html> 

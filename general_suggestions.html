@@ -106,11 +106,27 @@ body {
 .right-container > p {
   margin-top: 0;
 }
+  #handEmoji {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#handEmoji::before {
+    content: 'Hold your hand here to exit and return to the Welcome Screen';
+    font-size: 1em; /* Adjust text size as needed */
+}
+
+#handEmoji::after {
+    content: '🖐️';
+    font-size: 2em; /* Adjust emoji size as needed */
+
+}
 </style>
 </head>
 <h1 style="text-align: center;">General Suggestions</h1>
 <body>
-
+<span id="handEmoji"></span>
 <div class="split left">
   <div class="centered">
     <h1> Try this! </h1>
@@ -120,12 +136,14 @@ body {
 </div>
 
 <div class="split right">
+<span id="handEmoji"></span>
   <div class="right-container">
 
     <div id="emergencyExitButton">
       <span style="font-size: 2em; text-align: right;" id="exitLargeText">️</span>
       <p id="exitSmallText"></p>
     </div>
+
 
     <div class="options-container">
     <h1> General Posture Correcting Tips </h1>
@@ -146,7 +164,7 @@ body {
     <h1 id="countdown">15</h1>
     <p>Time remaining on this screen</p>
     <!-- Button for navigation (placeholder before kinect logic is implemented) -->
-<button id="navigateButton">🎉 Go to Celebration</button>
+<!--<button id="navigateButton">🎉 Go to Celebration</button>-->
 
   </div>
 </div>
@@ -154,4 +172,3 @@ body {
 <script type="module" src="general_suggestions.js"></script>
 </body>
 </html>
-

@@ -31,13 +31,13 @@
 
         .image-container {
             margin-bottom: 20px;
-            max-width: 100%; /* Ensure image fits within container */
+      
             max-height: 50vh; /* Limit image height */
             overflow: hidden; /* Hide overflow */
         }
 
         .image-container img {
-            width: auto; /* Allow image to determine width */
+            width: 100%; /* Allow image to determine width */
             height: 100%; /* Make image fill its container */
         }
 
@@ -50,7 +50,7 @@
         }
 
         .option {
-            width: 48%;
+            width: 30%;
             padding: 20px;
             background-color: #f8f8f8;
             border: 1px solid #ddd;
@@ -69,19 +69,27 @@
             margin-bottom: 20px;
         }
 
-        /* Style for hand emoji */
-        #handEmoji {
-            position: absolute;
-            top: 10px; /* Adjust top position */
-            right: 10px; /* Adjust right position */
-            font-size: 4em;
-            transform: rotateY(180deg); /* Flip the hand emoji horizontally */
-        }
+  #handEmoji {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#handEmoji::before {
+    content: 'Hold your hand here to exit and return to the Welcome Screen';
+    font-size: 1em; /* Adjust text size as needed */
+}
+
+#handEmoji::after {
+    content: '🖐️';
+    font-size: 2em; /* Adjust emoji size as needed */
+    
+}
     </style>
 </head>
 <body>
     <!-- Hand emoji -->
-    <span id="handEmoji">🖐️</span>
+    <span id="handEmoji"></span>
 
     <h1 style="margin-top: 0;">Try these tips to improve your posture!</h1>
 
