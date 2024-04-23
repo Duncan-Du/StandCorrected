@@ -7,7 +7,7 @@
 </head>
 <body>
 <!-- page content goes here -->
-<h1 >Scanning</h1>
+<h1 >Scanning...</h1>
 <h1 >Please stand as you normally would and face the TV.</h1>
 <h1 id="debug">Posture Index = </h1>
 <div id="progressContainer">
@@ -39,11 +39,91 @@
     #progressText {
         margin-bottom: 10px;
     }
-</style>
+        body {
+        font-family: 'Arial', sans-serif;
+       
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+        color: #333;
+        position: relative; /* Ensure relative positioning for absolute positioning */
+    }
 
+    .container {
+        width: 100%; /* Adjust container width */
+        max-height: 70vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-container {
+        margin-bottom: 20px;
+        max-width: 100%; /* Ensure image fits within container */
+        max-height: 50vh; /* Limit image height */
+        overflow: hidden; /* Hide overflow */
+    }
+
+    .image-container img {
+        width: auto; /* Allow image to determine width */
+        height: 100%; /* Make image fill its container */
+    }
+
+    .options-container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .option {
+        width: 48%;
+        padding: 20px;
+        background-color: #f8f8f8;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        transition: background-color 0.3s, transform 0.3s;
+        text-align: center;
+    }
+
+    .option:hover {
+        transform: translateY(-5px);
+        background-color: #eef;
+    }
+
+        .message {
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+      #handEmoji {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#handEmoji::before {
+    content: 'Hold your hand here to exit and return to the Welcome Screen';
+    font-size: 1em; /* Adjust text size as needed */
+}
+
+#handEmoji::after {
+    content: '🖐️';
+    font-size: 2em; /* Adjust emoji size as needed */
+    
+}
+</style>
+<body>
+<span id="handEmoji"></span>
 <!-- Button for navigation (placeholder before kinect logic is implemented) -->
 <!--<button id="navigateButton">Go to welcome screen</button>-->
-<button id="emergencyExitButton" class="emergency-exit-button">Hold your right Hand up to Emergency Exit</button>
+<!--<button id="emergencyExitButton" class="emergency-exit-button">Hold your right Hand up to Emergency Exit</button>-->
 
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="module" src="scanning.js"></script>
