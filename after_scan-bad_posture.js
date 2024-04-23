@@ -163,4 +163,4 @@ var sp2tx = {
 //   setup();
 
 //   document.getElementById('navigateButton').addEventListener('click', navigateToPage);
-});
+// });
