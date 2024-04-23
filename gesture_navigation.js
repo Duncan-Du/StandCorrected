@@ -3,9 +3,13 @@ import config from './config.js';
 
 const host = config.host;
 
-export function setupFramesAndSocket(frames, sp2tx) {
-    frames.start();
-    sp2tx.start();
+export function setupFramesAndSocket(frames, sp2tx, waitSeconds=5) {
+    const waitMilliseconds = waitSeconds * 1000;
+
+    setTimeout(() => {
+        frames.start();
+        sp2tx.start();
+    }, waitMilliseconds);
 }
 
 export function processFrame(data, frames) {
@@ -32,4 +36,4 @@ export function checkPosture(shoulderLeft, handLeft, shoulderRight, handRight, r
 
 
 
-};
+
