@@ -1,31 +1,16 @@
-// function setup() {
-
-// }
-
-// // Function to navigate
-// function navigateToPage() {
-//   console.log("button pressed")
-//   window.location.href = 'celebration.html';
-// }
-
-// // Event listener
-// document.addEventListener('DOMContentLoaded', function() {
-//   setup();
-
-//   document.getElementById('navigateButton').addEventListener('click', navigateToPage);
-// });
-
-
-
-const SECONDS_TO_COUNTDOWN = 5;
+import {emergency_exit_frames} from './emergency_exit.js'
+const SECONDS_TO_COUNTDOWN = 15;
 
 function setup() {
+  emergency_exit_frames.start()
   let countdownNumber = SECONDS_TO_COUNTDOWN;
   const countdownElement = document.getElementById('countdown');
+
 
   // Update the countdown every second
   const intervalId = setInterval(() => {
     countdownNumber--;
+    countdownElement.textContent = countdownNumber;
 
     if (countdownNumber <= 0) {
       clearInterval(intervalId);
@@ -34,15 +19,16 @@ function setup() {
   }, 1000);
 }
 
+
+
 // Function to navigate
 function navigateToPage() {
-  console.log("button pressed")
-  window.location.href = 'return_home_countdown.html';
+  window.location.href = 'celebration.html';
 }
+
 
 // Event listener
 document.addEventListener('DOMContentLoaded', function() {
   setup();
-
   document.getElementById('navigateButton').addEventListener('click', navigateToPage);
 });
