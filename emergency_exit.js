@@ -3,7 +3,7 @@ import { emergencyExitCheck } from './gesture_navigation.js'
 
 const host = config.host;
 
-const EMERGENCY_EXIT_THRESHOLD = 600; // Manually tested, need to fine-tune
+const EMERGENCY_EXIT_THRESHOLD = 200; // Manually tested, need to fine-tune
 
 
 export var frames = {
