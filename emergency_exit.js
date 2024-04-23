@@ -9,27 +9,27 @@ function emergencyExitCheck(shoulderRight, handRight, emergencyThreshold, frames
     console.log("right hand - shoulder diff: " + rightDiff);
     console.log("right hand confidence: " + handRight.confidence);
     if (rightDiff < -emergencyThreshold){
-        frames.selectOption(3, bodyId);
+        emergency_exit_frames.selectOption(3, bodyId);
     }
 }
 
 
 
-export var frames = {
+export var emergency_exit_frames = {
   socket: null,
 
   start: function () {
     var url = "ws://" + host + "/frames";
     this.socket = new WebSocket(url);
     this.socket.onmessage = function (event) {
-      frames.processFrame(JSON.parse(event.data));
+      emergency_exit_frames.processFrame(JSON.parse(event.data));
     };
   },
 
   processFrame: function (data) {
     if (data.people) {
       for (const person of data.people) {
-        frames.processPerson(person);
+        emergency_exit_frames.processPerson(person);
       }
     }
   },
