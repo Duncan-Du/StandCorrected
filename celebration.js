@@ -2,7 +2,7 @@ import {emergency_exit_frames} from './emergency_exit.js'
 const SECONDS_TO_COUNTDOWN = 15;
 
 function setup() {
-  const emergencyExitButton = document.getElementById('emergencyExitButton');
+  const emergencyExitButton = document.getElementById('handEmoji');
   let countdownNumber = SECONDS_TO_COUNTDOWN;
   const countdownElement = document.getElementById('countdown');
 
