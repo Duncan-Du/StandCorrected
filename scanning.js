@@ -14,5 +14,4 @@ function navigateToPage() {
 document.addEventListener('DOMContentLoaded', function () {
   setup();
 
-  document.getElementById('navigateButton').addEventListener('click', navigateToPage);
 });

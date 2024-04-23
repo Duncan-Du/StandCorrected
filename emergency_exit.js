@@ -1,5 +1,5 @@
 import config from './config.js';
-import { emergencyExitCheck } from './gesture_navigation.js'
+import { emergencyExitCheck, processFrame} from './gesture_navigation.js'
 
 const host = config.host;
 
@@ -13,7 +13,7 @@ export var frames = {
     var url = "ws://" + host + "/frames";
     this.socket = new WebSocket(url);
     this.socket.onmessage = function (event) {
-      frames.processFrame(JSON.parse(event.data));
+      processFrame(JSON.parse(event.data), this);
     };
   },
 

@@ -1,4 +1,4 @@
-import './emergency_exit.js';
+import {frames} from './emergency_exit.js'
 const SECONDS_TO_COUNTDOWN = 15;
 
 function setup() {
@@ -15,6 +15,7 @@ function setup() {
       navigateToPage(); // redirect after countdown ends
     }
   }, 1000);
+  frames.start()
 }
 
 // Function to navigate
