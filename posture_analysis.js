@@ -4,7 +4,7 @@ const host = config.host;
 
 
 const VERTICAL_ALIGNMENT_THRESHOLD = 600; // Manually tested, need to fine-tune
-const SCAN_LENGTH = 20; // samples to scan before ending the scan
+const SCAN_LENGTH = 100; // samples to scan before ending the scan
 const IGNORE_FIRST = 0.2; // amount of data to ignore before calculating the average
 var maxDiffValues = [];
 
