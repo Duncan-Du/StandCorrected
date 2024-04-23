@@ -2,6 +2,7 @@ import {frames} from './emergency_exit.js'
 const SECONDS_TO_COUNTDOWN = 15;
 
 function setup() {
+  frames.start()
   let countdownNumber = SECONDS_TO_COUNTDOWN;
   const countdownElement = document.getElementById('countdown');
 
@@ -15,7 +16,7 @@ function setup() {
       navigateToPage(); // redirect after countdown ends
     }
   }, 1000);
-  frames.start()
+
 }
 
 // Function to navigate

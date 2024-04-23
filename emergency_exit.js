@@ -7,19 +7,13 @@ const EMERGENCY_EXIT_THRESHOLD = 200; // Manually tested, need to fine-tune
 function emergencyExitCheck(shoulderRight, handRight, emergencyThreshold, frames, bodyId){
     const rightDiff = handRight.position.y - shoulderRight.position.y;
     console.log("right hand - shoulder diff: " + rightDiff);
-    console.log("right hand confidence: " + handLeft.confidence);
+    console.log("right hand confidence: " + handRight.confidence);
     if (rightDiff < -emergencyThreshold){
         frames.selectOption(3, bodyId);
     }
 }
 
-function processFrame(data, frames) {
-    if (data.people) {
-        for (const person of data.people) {
-            frames.processPerson(person);
-        }
-    }
-}
+
 
 export var frames = {
   socket: null,
@@ -28,8 +22,16 @@ export var frames = {
     var url = "ws://" + host + "/frames";
     this.socket = new WebSocket(url);
     this.socket.onmessage = function (event) {
-      processFrame(JSON.parse(event.data), this);
+      frames.processFrame(JSON.parse(event.data));
     };
+  },
+
+  processFrame: function (data) {
+    if (data.people) {
+      for (const person of data.people) {
+        frames.processPerson(person);
+      }
+    }
   },
 
   processPerson: function (person) {
