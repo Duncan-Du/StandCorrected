@@ -3,96 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stand-Corrected</title>
+    <title>Posture Correction</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            color: #333;
+            position: relative; /* Ensure relative positioning for absolute positioning */
+        }
+        
+        .container {
+            width: 100%; /* Adjust container width */
+            max-height: 70vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .image-container {
+            margin-bottom: 20px;
+            max-width: 100%; /* Ensure image fits within container */
+            max-height: 50vh; /* Limit image height */
+            overflow: hidden; /* Hide overflow */
+        }
+
+        .image-container img {
+            width: auto; /* Allow image to determine width */
+            height: 100%; /* Make image fill its container */
+        }
+
+        .options-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 20px;
+            
+        }
+
+        .option {
+            width: 48%;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.3s;
+            text-align: center;
+        }
+
+        .option:hover {
+            transform: translateY(-5px);
+            background-color: #eef;
+        }
+
+        .message {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        /* Style for hand emoji */
+        #handEmoji {
+            position: absolute;
+            top: 10px; /* Adjust top position */
+            right: 10px; /* Adjust right position */
+            font-size: 4em;
+            transform: rotateY(180deg); /* Flip the hand emoji horizontally */
+        }
+    </style>
 </head>
-
-<style>
-
-body {
-    font-family: 'Arial', sans-serif; /* Use a modern, readable font */
-    background-color: #f4f4f9; /* A light, neutral background color */
-    margin: 0;
-    padding: 20px; /* Add padding to prevent content from sticking to edges */
-    display: flex;
-    flex-direction: column; /* Stack child elements vertically */
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
-    height: 100vh; /* Full viewport height */
-    text-align: center; /* Ensures text within children is centered */
-}
-
-.header {
-    margin-bottom: 30px; /* Space between the header and the options */
-}
-
-.title {
-    font-weight: bold;
-    color: #333; /* Darker color for contrast */
-    font-size: 2em; /* Make the title larger to stand out */
-}
-
-.subtitle {
-    color: #666;
-    margin-top: 10px; /* Space between title and subtitle */
-}
-
-.options-container {
-    width: 60%; /* Adjusted width for better side-by-side display */
-    background-color: #ffffff;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Subtle shadow for depth */
-    border-radius: 10px; /* Soften the edges */
-    display: flex;
-    justify-content: space-between; /* Ensures space between options */
-    align-items: center; /* Align items vertically */
-    flex-wrap: nowrap; /* Prevents wrapping by default */
-}
-
-.option {
-    flex: 1; /* Allows each option to grow and take up equal space */
-    margin: 10px;
-    padding: 20px;
-    background-color: #f8f8f8; /* Slightly off-white for the options */
-    border: 1px solid #ddd; /* Subtle border */
-    border-radius: 8px;
-    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
-    text-align: center; /* Center text inside each option */
-}
-
-.option:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
-    background-color: #eef; /* Highlight on hover */
-}
-
-@media (max-width: 600px) {
-    .options-container {
-        flex-direction: column; /* Stacks the options vertically on smaller screens */
-    }
-}
-
-
-</style>
-
 <body>
-    <div class="header">
-        <div class="icon"></div>
-        <h1 class="title" style="font-weight: bold;">Welcome to “Stand-Corrected”</h1>
-        <p class="subtitle">Receive personalized insight or general advice for your posture's improvement!</p>
-        <p class="subtitle">One user at a time please.</p>
-    </div>
-    <div class="options-container">
-        <div class="option">
-            <h3>Option 1:</h3>
-            <p>If you would like to be scanned to have your posture corrected, raise your left hand.</p>
+    <!-- Hand emoji -->
+    <span id="handEmoji">🖐️</span>
+
+    <h1 style="margin-bottom: 1;">Welcome to “Stand-Corrected”</h1>
+<p class="message" style="margin-top: 0; margin-bottom: 0.5;">Receive personalized insight or general advice on your posture's improvement!</p>
+<p class="message" style="margin-top: 0;">One user at a time please.</p>
+
+
+    <div class="container">
+        <div class="options-container">
+            <div class="option">
+                <h3>Option 1:</h3>
+                <p>If you would like to be scanned to have your posture corrected, raise your left hand.</p>
+            </div>
+            <div class="image-container">
+                <img src="https://us.123rf.com/450wm/toofuneko/toofuneko2301/toofuneko230100049/196593373-sample-good-and-bad-posture-of-men.jpg?ver=6" alt="Good and Bad Posture">
+  
+            </div>
+            <div class="option">
+                <h3>Option 2:</h3>
+                <p>If you do not wish to be scanned, raise your right hand for general posture-correcting tips.</p>
+            </div>
         </div>
-        <div class="option">
-            <h3>Option 2:</h3>
-            <p>If you do not wish to be scanned, raise your right hand for general posture-correcting tips.</p>
-        </div>
+
+        <p class="message" style="margin-bottom: 0;">Try to position yourself to match the example avatar. Are you feeling more confident?</p>
+        <p class="message" style="margin-top: 0;">If so, you can continue with Option 2, else you can try again with Option 1.</p>
     </div>
+
+    <!-- Additional buttons -->
+    <button id="navigateButton">🎉 Go to Celebration</button>
+    <button id="navigateButton">Go to Scanning</button>
+    <button id="emergencyExitButton" class="emergency-exit-button">Hold your right Hand up to Emergency Exit</button>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="module" src="index.js" type="text/javascript"></script>
+    <script type="module" src="after_scan-bad_posture.js" type="text/javascript"></script>
 </body>
-
 </html>
+
