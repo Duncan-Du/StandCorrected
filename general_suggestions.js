@@ -1,5 +1,5 @@
 import {emergency_exit_frames} from './emergency_exit.js'
-const SECONDS_TO_COUNTDOWN = 15;
+const SECONDS_TO_COUNTDOWN = 30;
 
 function setup() {
   const handEmoji = document.getElementById('handEmoji');

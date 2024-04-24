@@ -3,7 +3,7 @@ import config from './config.js';
 const host = config.host;
 
 
-const VERTICAL_ALIGNMENT_THRESHOLD = 1000; // Manually tested
+const VERTICAL_ALIGNMENT_THRESHOLD = 2400; // Manually tested
 const SCAN_LENGTH = 100; // samples to scan before ending the scan
 const IGNORE_FIRST = 0.2; // amount of data to ignore before calculating the average
 var maxDiffValues = [];
