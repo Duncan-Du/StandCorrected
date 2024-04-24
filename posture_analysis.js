@@ -3,7 +3,7 @@ import config from './config.js';
 const host = config.host;
 
 
-const VERTICAL_ALIGNMENT_THRESHOLD = 1000; // Manually tested, need to fine-tune
+const VERTICAL_ALIGNMENT_THRESHOLD = 1000; // Manually tested
 const SCAN_LENGTH = 100; // samples to scan before ending the scan
 const IGNORE_FIRST = 0.2; // amount of data to ignore before calculating the average
 var maxDiffValues = [];
@@ -43,7 +43,7 @@ export var frames = {
     // count the amount below the threshold
     const belowThresholdCount = slicedMaxDiffValues.filter(value => value < VERTICAL_ALIGNMENT_THRESHOLD).length;
     console.log("Number of samples below threshold: " + belowThresholdCount);
-    if (belowThresholdCount < slicedMaxDiffValues.length / 2) {
+    if (belowThresholdCount > slicedMaxDiffValues.length / 2) {
       console.log("Posture is good");
       window.location.href = "after_scan-good_posture.html";
     } else {
@@ -91,7 +91,6 @@ export var frames = {
 
     const debugElement = document.getElementById('debug');
     debugElement.textContent = "Posture Index = " + maxDiff + ". Avg Confidence = " + avgConfidence + ".";
-    console.log("Size of maxDiffValues: " + maxDiffValues.length);
 
     if (maxDiffValues.length >= SCAN_LENGTH) {
       this.endScan();
