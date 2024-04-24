@@ -57,7 +57,7 @@ var sp2tx = {
 
 document.addEventListener('DOMContentLoaded', function () {
     console.log("DEBUG: gesture_navigation.js loaded")
-    setupFramesAndSocket(frames, sp2tx, 5);
+    setupFramesAndSocket(frames, sp2tx, 4);
 });
 
 
