@@ -37,10 +37,12 @@
             overflow: hidden; /* Hide overflow */
         }
 
-        .image-container img {
-            width: 100%; /* Allow image to determine width */
-            height: 100%; /* Make image fill its container */
-        }
+ .image-container img {
+    width: 100%; /* Allow image to determine width */
+    height: 100%; /* Make image fill its container */
+    transform: scaleX(-1); /* Flip the image along the y-axis */
+}
+
 
         .options-container {
             display: flex;
