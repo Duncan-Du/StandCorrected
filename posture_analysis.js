@@ -89,8 +89,8 @@ export var frames = {
 
     console.log("MSD: " + maxDiff);
 
-    const debugElement = document.getElementById('debug');
-    debugElement.textContent = "Posture Index = " + maxDiff + ". Avg Confidence = " + avgConfidence + ".";
+    // const debugElement = document.getElementById('debug');
+    // debugElement.textContent = "Posture Index = " + maxDiff + ". Avg Confidence = " + avgConfidence + ".";
 
     if (maxDiffValues.length >= SCAN_LENGTH) {
       this.endScan();
