@@ -63,7 +63,6 @@ The four of us met together:
 - Added mouse hover - color change mechanism for web
 - Added circle timer element and embedded to all pages that uses the timer
 
-
 ### Student Name and NetID: Julia Levy (jrl224)
 **Contribution:**
 - Implemented: Option 2 (not scanned), After scan - good posture

@@ -19,17 +19,17 @@ body {
 #countdown {
     display: flex;
     justify-content: center;
-    align-items: center; /* Centers the text vertically and horizontally */
-    width: 200px; /* Width of the circle */
-    height: 200px; /* Height of the circle, should be the same as width */
-    background-color: #a885d8; /* Light purple background color */
-    color: white; /* Text color */
-    border-radius: 50%; /* Makes the div a circle */
+    align-items: center; 
+    width: 170px; 
+    height: 170px; 
+    background-color: #c6aee7; 
+    color: white; 
+    border-radius: 50%; 
     font-family: 'Arial', sans-serif;
-    font-size: 100px; /* Increased font size for better visibility */
+    font-size: 100px; 
     font-weight: bold;
-    margin: 20px auto; /* Centering the circle horizontally */
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Text shadow for better readability */
-    box-shadow: 0 0 20px rgba(0,0,0,0.15); /* Outer shadow for a 3D effect */
+    margin: 20px auto; 
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
+    box-shadow: 0 0 20px rgba(0,0,0,0.15); 
 }
 
