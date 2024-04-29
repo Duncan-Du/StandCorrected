@@ -57,6 +57,12 @@ The four of us met together:
 **Contribution:**
 - Improved visual layout of general suggestions screen and after scan bad posture screen
 - Stylized index screen using CSS
+- Improved style elements and added button for the progress bar on the scanning screen
+- Added common CSS elements across all files for enhanced consistency
+- Organized color scheme for consistency
+- Added mouse hover - color change mechanism for web
+- Added circle timer element and embedded to all pages that uses the timer
+
 
 ### Student Name and NetID: Julia Levy (jrl224)
 **Contribution:**
