@@ -17,48 +17,48 @@
 
 <style>
     body {
-        font-family: 'Roboto', sans-serif; /* Ensures a modern, readable font */
-        background-color: #f4f4f9; /* Light grey background for a clean look */
-        color: #333; /* Standard text color for good readability */
+        font-family: 'Roboto', sans-serif; 
+        background-color: #f4f4f9; 
+        color: #333; 
         margin: 0;
         padding: 20px;
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centers content horizontally */
-        justify-content: center; /* Centers content vertically */
+        align-items: center; 
+        justify-content: center; 
         height: 100vh;
-        text-align: center; /* Ensures text is centered */
+        text-align: center; 
     }
 
     h1 {
         margin-top: 20px;
-        margin-bottom: 10px; /* Ensures consistent spacing around headings */
+        margin-bottom: 10px; 
     }
 
     #progressContainer {
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centers the progress bar and text vertically */
+        align-items: center; 
         padding: 15px;
-        width: 80%; /* Limits width to prevent stretching on wide screens */
+        width: 80%; 
         background-color: #ffffff;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Adds subtle shadow for depth */
-        border-radius: 8px; /* Rounded corners */
-        margin-top: 20px; /* Space between text and progress bar */
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        border-radius: 8px; 
+        margin-top: 20px; 
     }
 
     #progressText {
-        margin-bottom: 10px; /* Space above the progress bar */
+        margin-bottom: 10px; 
     }
 
     progress {
-        width: 100%; /* Full width of its container */
-        height: 20px; /* Increased height for better visibility */
-        border-radius: 10px; /* Rounded edges */
+        width: 100%; 
+        height: 20px; 
+        border-radius: 10px;
     }
 
     progress[value] {
-        background-color: #f3f3f3; /* Light grey background */
+        background-color: #f3f3f3; 
     }
 
     progress[value]::-webkit-progress-bar {
@@ -66,46 +66,46 @@
     }
 
     progress[value]::-webkit-progress-value {
-        background-color: #4caf50; /* Green to indicate progress */
-        border-radius: 10px; /* Rounded edges for the progress value */
+        background-color: #4caf50; 
+        border-radius: 10px;
     }
 
     progress[value]::-moz-progress-bar {
-        background-color: #4caf50; /* Consistent with the WebKit styling */
+        background-color: #4caf50; 
     }
 
     .emergency-exit-button {
         position: fixed;
         top: 10px;
         right: 10px;
-        background-color: #ff4136; /* Vivid red for attention */
+        background-color: #ff4136;
         color: white;
         border: none;
         padding: 10px 20px;
         font-size: 16px;
         cursor: pointer;
-        border-radius: 5px; /* Rounded corners */
+        border-radius: 5px; 
     }
 
     #handEmoji {
         position: absolute;
         top: 10px;
         right: 10px;
-        font-size: 2em;  /* This sets the overall size of the emoji and affects the text */
-        display: flex;  /* Aligns text and emoji in a row */
-        align-items: center;  /* Vertically centers the text and emoji */
-        white-space: nowrap;  /* Prevents the content from wrapping */
+        font-size: 2em;  
+        display: flex; 
+        align-items: center; 
+        white-space: nowrap;  
     }
 
     #handEmoji::before {
         content: 'Hold your hand here to exit and return to the Welcome Screen ';
-        font-size: 0.5em;  /* Adjusts the text size relative to the emoji */
-        margin-right: 5px;  /* Adds a small space between the text and emoji */
+        font-size: 0.5em;  
+        margin-right: 5px;  
     }
 
     #handEmoji::after {
         content: '🖐️';
-        font-size: 0.75em;  /* Adjusts the size of the emoji relative to the text */
+        font-size: 0.75em;  
     }
 
 </style>
